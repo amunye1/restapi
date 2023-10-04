@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">restapi</string>
+    <string name="title_user">User</string>
+    <string name="title_search">Search</string>
+</resources>
