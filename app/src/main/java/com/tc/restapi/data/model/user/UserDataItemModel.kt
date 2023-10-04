@@ -3,7 +3,7 @@ package com.tc.restapi.data.model.user
 
 import com.google.gson.annotations.SerializedName
 
-data class UserDataModelItemModel(
+data class UserDataItemModel(
     @SerializedName("avatar_url")
     val avatarUrl: String? = "",
     @SerializedName("events_url")

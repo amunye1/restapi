@@ -43,13 +43,7 @@ class AppModule {
                     if(BuildConfig.DEBUG) {
                         val logging = HttpLoggingInterceptor()
                         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-                            .addInterceptor { chain ->
-                                val request = chain.request().newBuilder()
-                                    .addHeader("Authorization", "Bearer $apiKey")
-                                    .build()
-                                chain.proceed(request)
-                            }
-
+                        client.addInterceptor(logging)
                     }
             }
 
