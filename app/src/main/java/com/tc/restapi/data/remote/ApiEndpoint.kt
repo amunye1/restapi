@@ -5,7 +5,7 @@ import com.tc.restapi.data.remote.ApiDetails.USER_ENDPOINT
 import retrofit2.Response
 import retrofit2.http.GET
 
-class ApiEndpoint {
+interface ApiEndpoint {
 
     @GET(ApiDetails.USER_ENDPOINT)
     suspend fun getUserInfo(): Response<ArrayList<UserDataItemModel>>

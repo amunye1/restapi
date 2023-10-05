@@ -2,4 +2,6 @@
     <string name="app_name">restapi</string>
     <string name="title_user">User</string>
     <string name="title_search">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

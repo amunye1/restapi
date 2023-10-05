@@ -30,7 +30,10 @@ class AppModule {
             .addInterceptor(
                 HttpLoggingInterceptor()
                     .setLevel(HttpLoggingInterceptor.Level.BODY)
-            ).build()
+            ).addInterceptor{chain ->
+                val request = chain.request().newBuilder().addHeader("Authorization", BuildConfig.API_KEY).build()
+                chain.proceed(request)
+            }.build()
     }
 
     @Provides
@@ -39,16 +42,9 @@ class AppModule {
         gson: Gson
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(ApiDetails.BASE_URL).also{client ->
-                    if(BuildConfig.DEBUG) {
-                        val logging = HttpLoggingInterceptor()
-                        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-                        client.addInterceptor(logging)
-                    }
-            }
-
+            .baseUrl(ApiDetails.BASE_URL)
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create(gson))
-
             .build()
     }
 

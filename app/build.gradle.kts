@@ -28,11 +28,13 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "API_KEY", "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")
+            //string wont be formatted properly if we dont put quotes
+            //pass the quote as part of the value
+            buildConfigField("String", "API_KEY", "\"token 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\"")
             }
 
         debug {
-            buildConfigField("String", "API_KEY", "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")
+            buildConfigField("String", "API_KEY", "\"token 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\"")
             }
         }
 
@@ -40,11 +42,11 @@ android {
 
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         viewBinding = true
@@ -88,6 +90,10 @@ dependencies {
 
     // For control over item selection of both touch and mouse driven selection
     implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
+    //Glide Dependency
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    //Retrofit Dependency
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
 }
 
 
